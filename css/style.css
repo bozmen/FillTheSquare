@@ -1,12 +1,34 @@
 .container{
 	margin: auto;
 	max-width: 720px;
+	height: 600px;
 	font-family: Tahoma;
-	color: red;
+	background-color: #cccccc;
 	margin-top: 25px;
 }
 
-#board{
-	height: auto;
-	width: auto;
+
+#grids{
+	top: 50%;
+	left: 50%;
+	background-color: white;
+	position: relative;
+	display: inline-block;
+}
+
+.tile{
+	height:48px;
+	width: 48px;
+	display: inline-block;
+	border: 1px solid #22ddff;
+	float: left;
+	font-size: 30px;
+	line-height: 48px;
+	text-align: center;
+	background: #ffffff;
+	color: #343434;
+}
+
+.clickable{
+	background: #11ff44;
 }
