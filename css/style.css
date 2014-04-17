@@ -1,34 +1,104 @@
+body{
+	background-color: #ffffff;
+}
+
 .container{
 	margin: auto;
 	max-width: 720px;
 	height: 600px;
 	font-family: Tahoma;
-	background-color: #cccccc;
+	background-color: #ffffff;
 	margin-top: 25px;
 }
 
 
 #grids{
+	background-color: white;
+	border: 3px solid #005599;
+}
+
+#start-text{
+	display: inline;
+	z-index: 1;
+	position: absolute;
+	opacity: 0.6;
+	font-size: 25px;
+}
+
+.centered{
+	display: inline-block;
+	position: relative;
 	top: 50%;
 	left: 50%;
-	background-color: white;
-	position: relative;
-	display: inline-block;
 }
 
 .tile{
 	height:48px;
 	width: 48px;
 	display: inline-block;
-	border: 1px solid #22ddff;
 	float: left;
 	font-size: 30px;
 	line-height: 48px;
 	text-align: center;
 	background: #ffffff;
 	color: #343434;
+	border: 1px solid #005599;
 }
 
 .clickable{
 	background: #11ff44;
 }
+
+#difficulty{
+	position: fixed;
+	z-index: 2;
+	width: 600px;
+	height: 200px;
+	display: none;
+}
+
+#hard{
+	background: #1B1BB3;
+	height: inherit;
+	width: 200px;
+	display: inline-block;
+	margin: 0px;
+	float: left;
+
+}
+
+#medium{
+	background: #4F4FD9;
+	height: inherit;
+	width: 200px;
+	display: inline-block;
+	margin: 0px;
+	float: left;
+
+}
+
+#easy{
+	background: #9F9FE1;
+	height: inherit;
+	width: 200px;
+	display: inline-block;
+	margin: 0px;
+	float: left;
+}
+
+#easy:hover, #medium:hover, #hard:hover{
+	background: white;
+	color: #999999;
+	border: 1px solid #dddddd;
+	width: 198px;
+	height: 198px;
+}
+
+
+
+.selection{
+	color: white;
+	font-size: 45px;
+}
+
+

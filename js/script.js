@@ -1,3 +1,3 @@
 $(document).ready(function(){
-	var grid = new Grid(10);
+	var gm = new GameManager();
 });

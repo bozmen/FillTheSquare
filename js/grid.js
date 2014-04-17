@@ -1,6 +1,7 @@
 function Grid(size){
 	this.size = size;
 	this.cells = [];
+	this.toolbox = new Toolbox();
 	//alert("Grid created!");
 	this.build();
 	//alert("Built!");
@@ -18,19 +19,10 @@ Grid.prototype.build = function() {
 	$.each(this.cells, function(){
 		$('#grids').append('<div class="tile ' + this.x + '-' +  this.y + '"></div>' );
 	});
-	this.center();
+	this.toolbox.center();
 };
 
 Grid.prototype.clear = function() {
 	this.cells = [];
 }
 
-Grid.prototype.center = function() {
-	//alert('Im in center');
-	var $width  = parseInt($('#grids').css('width'));
-	var $height = parseInt($('#grids').css('height'));
-	//alert("centering...");
-	$('#grids').css('margin-left', -$width/2);
-	$('#grids').css('margin-top', -$height/2);
-	//alert("done!");
-}
