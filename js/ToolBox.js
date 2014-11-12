@@ -1,7 +1,8 @@
-function Toolbox(){
+function ToolBox(){
+	this.a = 0;
 }
 
-Toolbox.prototype.center = function() {
+ToolBox.prototype.center = function() {
 	//alert('Im in center');
 	$.each($('.centered'),function(){
 		var $width  = parseInt($(this).css('width'));

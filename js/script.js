@@ -1,3 +1,6 @@
 $(document).ready(function(){
-	var gm = new GameManager();
+	Game.promptDifficulty(Game.initiateGame);
 });
+
+/*      this.initiateGame();
+        this.run();*/

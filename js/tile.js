@@ -3,9 +3,19 @@ function Tile(x,y){
 	this.y = y;
 
 	this.number = null;
-	this.availible = true;
+	this.availible = false;
 }
 
 Tile.prototype.updateNumber = function(num) {
 	this.number = num;
+}
+
+Tile.prototype.getX = function()
+{
+	return this.x;
+}
+
+Tile.prototype.getY = function()
+{
+	return this.y;
 };

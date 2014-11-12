@@ -1,29 +1,52 @@
-function GameManager() {
-    this.current = 0;
-    this.difficulty = 0;
-    this.toolbox = new Toolbox();
-    this.promptDifficulty($.proxy(function (difficulty) {
-        this.grid = new Grid(this.difficulty);
-        this.start();
-    }, this));
+var Game = {};
+Game.fps = 50;
+Game.current = 0;
+Game.difficulty = 0;
+Game.toolbox = new ToolBox();
+Game.grid = 0;
+Game.isFinished = false;
+
+Game.promptDifficulty = function(callback){
+    $("#difficulty").show();
+    $("#start-text").hide();
+    Game.toolbox.center();
+    this.selected = false;
+    $('.selection').click(function(event){
+        var $diff = event.target.id;
+
+        if ($diff === 'easy') Game.difficulty = 8;
+        else if ($diff === 'medium') Game.difficulty = 9;
+        else if ($diff === 'hard') Game.difficulty = 10;
+        $('#difficulty').hide();
+        $("#start-text").show();
+        callback(Game.difficulty);
+    });
 }
 
-GameManager.prototype.promptDifficulty = function (callback) {
-    $("#difficulty").show();
-    this.toolbox.center();
-    var selected = false;
-    $('.selection').click($.proxy(function (e) {
-        var $diff = e.currentTarget.id;
+Game.isDifficultySpecified = function(){
+    return (this.difficulty === 8 || this.difficulty === 9 || this.difficulty === 10);
+}
 
-        if ($diff === 'easy') this.difficulty = 8;
-        else if ($diff === 'medium') this.difficulty = 9;
-        else if ($diff === 'hard') this.difficulty = 10;
-        $('#difficulty').hide();
+Game.initiateGame = function(difficulty){
+    Game.grid = new Grid(difficulty);
+    for(cellIndex in Game.grid.cells)
+    {
+        var cell = Game.grid.cells[cellIndex];
+        cell.availible = true;
+        if(cell.availible == true)
+        {
+            $("#" + cell.x + "-" + cell.y).toggleClass('clickable');
+        }
+    }
+}
 
-        callback(this.difficulty);
-    }, this));
-};
-
-GameManager.prototype.isDifficultySpecified = function() {
-	return (this.difficulty === 8 || this.difficulty === 9 || this.difficulty === 10);
+Game.update = function(){
+    alert("in?");
+    this.isClicked = false;
+    var clickedX;   
+    var clickedY;
+    $('.tile').click(function(event)
+    {
+        alert(event.target.id);
+    });
 };
