@@ -16,12 +16,10 @@ ToolBox.prototype.center = function() {
 
 ToolBox.prototype.getX = function(id){
 	var mid = id.indexOf('-');
-	alert(id.substring(0,mid));
 	return parseInt(id.substring(0,mid));
 }
 
 ToolBox.prototype.getY = function(id){
 	var mid = id.indexOf('-');
-	alert(id.substring(mid+1));
 	return parseInt(id.substring(mid+1));
 }
