@@ -17,9 +17,9 @@ Game.promptDifficulty = function(callback){
     $('.selection').click(function(event){
         var $diff = event.target.id;
 
-        if ($diff === 'easy') Game.difficulty = 8;
-        else if ($diff === 'medium') Game.difficulty = 9;
-        else if ($diff === 'hard') Game.difficulty = 10;
+        if ($diff === 'easy') Game.difficulty = 7;
+        else if ($diff === 'medium') Game.difficulty = 10;
+        else if ($diff === 'hard') Game.difficulty = 13;
         $('#difficulty').hide();
         $("#start-text").show();
         callback(Game.difficulty);
