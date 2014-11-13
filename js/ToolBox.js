@@ -13,3 +13,11 @@ ToolBox.prototype.center = function() {
 		//alert("done!");
 	})
 }
+
+ToolBox.prototype.getX = function(id){
+	return parseInt(id[0]);
+}
+
+ToolBox.prototype.getY = function(id){
+	return parseInt(id[2]);
+}

@@ -4,6 +4,7 @@ function Tile(x,y){
 
 	this.number = null;
 	this.availible = false;
+	this.occupied = false;
 }
 
 Tile.prototype.updateNumber = function(num) {
