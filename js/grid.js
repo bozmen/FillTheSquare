@@ -11,7 +11,7 @@ Grid.prototype.build = function() {
 	//alert("I'm in!");
 	$('#grids').css('width', 50*this.size);
 	//alert("width set!");
-	$('#grids').css('height', 50*this.size);
+	$('#grids').css('height', (50*this.size));
 /*	alert("height set!");*/
 	for(k = 0; k < this.size; k++)
 	{
