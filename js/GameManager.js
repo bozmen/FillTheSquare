@@ -22,7 +22,6 @@ Game.promptDifficulty = function(callback){
         else if ($diff === 'hard') Game.difficulty = 13;
         $('#difficulty').hide();
         $("#start-text").show();
-        $('#reset').show();
         callback(Game.difficulty);
     });
 }
@@ -102,19 +101,14 @@ Game.updateGame = function(x, y){
         var clickedX = Game.toolbox.getX(event.target.id);
         var clickedY = Game.toolbox.getY(event.target.id);
         $('.clickable').off("click");
-        Game.grid.cells[clickedX][clickedY].updateNumber(Game.current++);
+        $("#" + clickedX + "-" + clickedY).append(Game.current++);
         Game.clearCells();
+        $()
         Game.updateGame(clickedX, clickedY);
     });
 }
 
 Game.startGame = function(){
-    $('#reset').off();
-    $("#reset").on("click", function(event)
-    {
-        Game.resetGame();
-        Game.startGame();
-    });
     $('.clickable').on("click", function(event)
     {
         var clickedX = Game.toolbox.getX(event.target.id);
@@ -122,8 +116,9 @@ Game.startGame = function(){
         $('.clickable').off("click");
         Game.clearCells();
         $('#start-text').hide();
-        Game.grid.cells[clickedX][clickedY].updateNumber(Game.current++);
+        $("#" + clickedX + "-" + clickedY).append(Game.current++);
         Game.updateGame(clickedX, clickedY);
+        return;
     });
 };
 
@@ -134,19 +129,13 @@ Game.updateView = function()
         for(cellY in Game.grid.cells[cellX])
         {
             var cell = Game.grid.cells[cellX][cellY];
-            if(cell.number != null)
-                $("#" + cellX + "-" + cellY).text(cell.number);
-            else if(cell.number == null)
-                $("#" + cellX + "-" + cellY).empty();
             if(cell.availible == true && cell.occupied == false)
             {
                 $("#" + cellX + "-" + cellY).addClass('clickable');
             }
-            else
-                $("#" + cellX + "-" + cellY).removeClass('clickable');
         }
     }
-};
+}
 
 Game.clearCells = function()
 {
@@ -159,22 +148,4 @@ Game.clearCells = function()
             $("#" + cellX + "-" + cellY).removeClass('clickable');
         }
     }
-};
-
-Game.resetGame = function()
-{
-    Game.current = 1;
-    $(".clickable").off();
-    for(cellX in Game.grid.cells)
-    {
-        for(cellY in Game.grid.cells[cellX])
-        {
-            var cell = Game.grid.cells[cellX][cellY];
-            // alert(cellX + "" + cellY);
-            cell.updateNumber(null);
-            cell.availible = true;
-            cell.occupied = false;
-        }
-    }
-    Game.updateView();
-};
+}

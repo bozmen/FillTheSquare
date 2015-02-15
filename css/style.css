@@ -14,23 +14,7 @@ body{
 
 #grids{
 	background-color: white;
-	border: 1px solid #005599;
-}
-
-#reset{
-	height: 75px;
-	width: 75px;
-	border: 1px solid #005599;
-	border-radius: 50px;
-	background: #2277bb;
-	color: #dddddd;
-	display: none;
-	vertical-align: middle;
-}
-
-#reset:active{
-	background: white;
-	color: #2277bb;;
+	border: 3px solid #005599;
 }
 
 #start-text{
